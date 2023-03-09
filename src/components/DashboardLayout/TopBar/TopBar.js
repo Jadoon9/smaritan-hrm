@@ -19,10 +19,10 @@ const TopBar = () => {
         marginRight="108px"
         alignItems="center"
       >
-        <Box style={{ color: "#3E7BFA" }}>
+        <Box sx={{ color: "#3E7BFA", fontSize: "32px" }}>
           <DashboardIcon />
         </Box>
-        <Typography color="#3E7BFA" flex={1}>
+        <Typography sx={{ fontSize: "32px" }} color="#3E7BFA" flex={1}>
           Dashboard
         </Typography>
         <TopBarUserCard />
