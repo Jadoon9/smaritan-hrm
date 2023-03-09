@@ -45,7 +45,7 @@ const SideBar = () => {
           <img src={logo} alt="logo" />
         </Box>
 
-        <Box flex={1}>
+        <Stack flex={1} spacing={1}>
           {navItems.map((item, idx) => {
             return (
               <SidebarItem
@@ -57,7 +57,7 @@ const SideBar = () => {
               />
             );
           })}
-        </Box>
+        </Stack>
 
         <Box>
           {socialPlatforms.map((item, idx) => {
