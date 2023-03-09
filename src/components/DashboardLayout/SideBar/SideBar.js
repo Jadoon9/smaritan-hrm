@@ -13,6 +13,7 @@ import StickyNote2Icon from "@mui/icons-material/StickyNote2";
 import Slack from "../../../assets/slack.png";
 import Trello from "../../../assets/trello.png";
 import Clickup from "../../../assets/clickup.png";
+import AddIcon from "@mui/icons-material/Add";
 
 const navItems = [
   { id: 1, name: "Dashboard", icon: <DashboardIcon /> },
@@ -22,6 +23,7 @@ const navItems = [
   { id: 2, name: "Polices", icon: <StickyNote2Icon /> },
 ];
 const socialPlatforms = [
+  { id: 1, name: "Add New Platform" },
   { id: 1, name: "Slack", img: Slack },
   { id: 2, name: "Clickup", img: Clickup },
   { id: 2, name: "Trello", img: Trello },
@@ -30,38 +32,47 @@ const socialPlatforms = [
 const SideBar = () => {
   return (
     <Paper
-      sx={{ height: "100vh", width: "280px" }}
+      sx={{ height: "100%", width: "280px" }}
       // style={{ backgroundColor: "yellow" }}
     >
-      <Box>
-        <Stack direction="column" justifyContent="center" alignItems="center">
-          <Box marginTop={2} marginBottom={4}>
-            <img src={logo} alt="logo" />
-          </Box>
+      <Stack
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ height: "100vh", borderRadius: "10px" }}
+      >
+        <Box marginTop={2} marginBottom={4}>
+          <img src={logo} alt="logo" />
+        </Box>
 
-          <Box alignItems="center" flex={1}>
-            {navItems.map((item, idx) => {
-              return (
-                <SidebarItem key={idx} item={item} idx={idx} icon={item.icon} />
-              );
-            })}
-          </Box>
+        <Box flex={1}>
+          {navItems.map((item, idx) => {
+            return (
+              <SidebarItem
+                addIcon={idx === 0 ? true : false}
+                key={idx}
+                item={item}
+                idx={idx}
+                icon={item.icon}
+              />
+            );
+          })}
+        </Box>
 
-          <Box sx={{ float: "end" }}>
-            {socialPlatforms.map((item, idx) => {
-              return (
-                <SidebarItem
-                  key={idx}
-                  item={item}
-                  idx={idx}
-                  img={item.img}
-                  button={true}
-                />
-              );
-            })}
-          </Box>
-        </Stack>
-      </Box>
+        <Box>
+          {socialPlatforms.map((item, idx) => {
+            return (
+              <SidebarItem
+                key={idx}
+                item={item}
+                idx={idx}
+                img={item.img}
+                button={true}
+              />
+            );
+          })}
+        </Box>
+      </Stack>
     </Paper>
   );
 };
