@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import SideBar from "./components/DashboardLayout/SideBar/SideBar";
+import TopBar from "./components/DashboardLayout/TopBar/TopBar";
+import MainContent from "./components/DashboardLayout/MainContent/MainContent";
+import { Stack } from "@mui/system";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Stack direction="row" spacing={2}>
+      <Stack direction="column">
+        <SideBar />
+      </Stack>
+      <Stack direction="column" flex={1} spacing={2}>
+        <TopBar />
+        <MainContent></MainContent>
+      </Stack>
+    </Stack>
   );
-}
+};
 
 export default App;
